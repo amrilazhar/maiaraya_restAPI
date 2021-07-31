@@ -1,0 +1,35 @@
+{
+  "name": "maiaraya_assigment",
+  "version": "1.0.0",
+  "description": "This is an assigment test for maiaraya junior developer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=development nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amrilazhar/maiaraya_restAPI.git"
+  },
+  "author": "Amril Azhar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amrilazhar/maiaraya_restAPI/issues"
+  },
+  "homepage": "https://github.com/amrilazhar/maiaraya_restAPI#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.4",
+    "mongoose-delete": "^0.5.3",
+    "nodemon": "^2.0.12",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "swagger-ui-express": "^4.1.6"
+  }
+}

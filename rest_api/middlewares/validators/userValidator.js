@@ -79,11 +79,6 @@ exports.signup = [
 	body("confirm_password").trim().notEmpty().custom(comparePassword),
 ];
 
-exports.registerUser = [
-	body("username").trim().notEmpty().custom(userExistsByUsername),
-	body("email").isEmail().custom(userExistsByEmail).normalizeEmail(),
-];
-
 exports.login = [
 	body("username").trim(),
 	body("password").trim().isLength({ min: 6 }),
@@ -91,23 +86,4 @@ exports.login = [
 
 exports.checkUserId = [
 	check("user_id").custom(isValidObjectId).bail().customSanitizer(objectId),
-];
-
-exports.updateUser = [
-	body("email")
-		.optional({ nullable: true })
-		.isEmail()
-		.custom(userExistsByEmail)
-		.normalizeEmail(),
-	body("address").trim().optional({ nullable: true }),
-	body("username")
-		.trim()
-		.custom(userExistsByUsername)
-		.optional({ nullable: true }),
-];
-
-exports.changePassword = [
-	body("old_password").trim().isLength({ min: 6 }).custom(passwordMatch),
-	body("password").trim().isLength({ min: 6 }),
-	body("confirm_password").custom(comparePassword),
 ];

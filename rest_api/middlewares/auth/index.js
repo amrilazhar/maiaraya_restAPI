@@ -168,7 +168,7 @@ let doAuth = async (req, res, next) => {
 
 			// If user is not exist
 			if (!user) {
-				return res.status(401).json({
+				return res.status(400).json({
 					status: "Error",
 					message: info.message,
 				});
@@ -232,7 +232,7 @@ let isAdmin = async (req, res, next) => {
 			// If not admin, send error
 			if (!user) {
 				const error = new Error(info.message);
-				error.statusCode = 400;
+				error.statusCode = 401;
 				throw error;
 			} else {
 				req.user = user;
