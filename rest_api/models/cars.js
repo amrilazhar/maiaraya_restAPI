@@ -4,9 +4,9 @@ const CarSchema = new mongoose.Schema(
 	{
 		merk: { type: String, required: true },
 		tipe_varian: { type: String, required: true },
-		kondisi: String,
-		jumlah: Number,
-		harga_sewa: Number,
+		kondisi: { type: String, required: true },
+		jumlah: { type: Number, required: true },
+		harga_sewa: { type: Number, required: true },
 	},
 	{
 		timestamps: {
@@ -15,7 +15,7 @@ const CarSchema = new mongoose.Schema(
 		},
 	}
 );
-CarSchema.index({ merk: 1, tipe_varian: 1 }, { unique: true });
+CarSchema.index({ merk: 1, tipe_varian: 1, kondisi: 1 }, { unique: true });
 CarSchema.set("toJSON", {
 	virtuals: true,
 	versionKey: false,

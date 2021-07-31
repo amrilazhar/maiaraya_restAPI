@@ -18,6 +18,9 @@ app.use(
 const authRoutes = require("./routes/authRoutes.js");
 app.use("/auth", authRoutes);
 
+const adminRoutes = require("./routes/adminRoutes.js");
+app.use("/admin", adminRoutes);
+
 //========================= Error Handler ==========================
 app.use((err, req, res, next) => {
 	const status = err.statusCode || 500;

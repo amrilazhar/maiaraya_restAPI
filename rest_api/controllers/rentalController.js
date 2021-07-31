@@ -1,4 +1,5 @@
-const { Car } = require("../model");
+const { Car } = require("../models");
+const validationErrorHandler = require("../helpers/validationErrorHandler");
 
 class RentalController {}
 
