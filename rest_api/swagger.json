@@ -8,7 +8,7 @@
   },
   "servers": [
     {
-      "url": "http://example.com",
+      "url": "http://localhost:3000",
       "variables": {}
     }
   ],
@@ -136,7 +136,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/successsignup"
+                  "$ref": "#/components/schemas/%5BSignup%5DSuccess"
                 },
                 "example": {
                   "message": "success",
@@ -212,7 +212,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/notvalidemail1"
+                  "$ref": "#/components/schemas/%5BSignup%5DNotvalidemail1"
                 },
                 "example": {
                   "success": false,
@@ -336,7 +336,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/success"
+                  "$ref": "#/components/schemas/%5BLogin%5DSuccess"
                 },
                 "example": {
                   "message": "success",
@@ -412,7 +412,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/usernotfound1"
+                  "$ref": "#/components/schemas/%5BLogin%5DUsernotfound1"
                 },
                 "example": {
                   "status": "Error",
@@ -488,7 +488,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/passwordempty1"
+                  "$ref": "#/components/schemas/%5BLogin%5DPasswordempty1"
                 },
                 "example": {
                   "success": false,
@@ -587,7 +587,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/Success1"
+                  "$ref": "#/components/schemas/%5BAdmDetailMobil%5DSuccess"
                 },
                 "example": {
                   "message": "success",
@@ -672,7 +672,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/CarIDnotValid1"
+                  "$ref": "#/components/schemas/%5BAdmDetailMobil%5DCarIDnotValid1"
                 },
                 "example": {
                   "success": false,
@@ -756,11 +756,258 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotAdmin1"
+                  "$ref": "#/components/schemas/%5BAdmDetailMobil%5DNotAdmin1"
                 },
                 "example": {
                   "success": false,
                   "message": "you are not Authorized"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Delete Mobil",
+        "description": "Endpoint for deleting mobil record",
+        "operationId": "DeleteMobil",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "45"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"2d-CaOG6qx8ItyB4DfP5Encevf+aMk\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:26:50 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/%5BAdmDeleteMobil%5DSuccess"
+                },
+                "example": {
+                  "message": "Car record successfully deleted"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "157"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"9d-GFGEbzmm/b6RHxm+qfXOpuP/gLA\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:26:31 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/%5BAdmDeleteMobil%5DIDnotValid1"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Validation failed",
+                  "data": [
+                    {
+                      "value": "61055a0e898d82288f9e69b",
+                      "msg": "Car ID is not valid",
+                      "param": "car_id",
+                      "location": "params"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "46"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"2e-cwFgPzyoqIYFl83SyjHhb0BkU/k\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:28:23 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/%5BAdmDeleteMobil%5DIDnotFound1"
+                },
+                "example": {
+                  "success": false,
+                  "message": "id car not found"
                 }
               }
             }
@@ -846,7 +1093,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/Success2"
+                  "$ref": "#/components/schemas/%5BAdmListMobil%5DSuccess"
                 },
                 "example": {
                   "message": "success",
@@ -981,7 +1228,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/Success1"
+                  "$ref": "#/components/schemas/%5BAdmUpdateStok%5DSuccess"
                 },
                 "example": {
                   "message": "success",
@@ -1066,7 +1313,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/IDnotValid1"
+                  "$ref": "#/components/schemas/%5BAdmUpdateStok%5DIDnotValid1"
                 },
                 "example": {
                   "success": false,
@@ -1150,7 +1397,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/IDNotFound1"
+                  "$ref": "#/components/schemas/%5BAdmUpdateStok%5DIDNotFound1"
                 },
                 "example": {
                   "success": false,
@@ -1282,7 +1529,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/Success1"
+                  "$ref": "#/components/schemas/%5BAdmDaftarMobil%5DSuccess"
                 },
                 "example": {
                   "message": "success",
@@ -1367,7 +1614,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/DuplicateValue1"
+                  "$ref": "#/components/schemas/%5BAdmDaftarMobil%5DDuplicateValue1"
                 },
                 "example": {
                   "success": false,
@@ -1443,7 +1690,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/InvalidInput1"
+                  "$ref": "#/components/schemas/%5BAdmDaftarMobil%5DInvalidInput1"
                 },
                 "example": {
                   "success": false,
@@ -1533,260 +1780,11 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotAdmin1"
+                  "$ref": "#/components/schemas/%5BAdmDaftarMobil%5DNotAdmin1"
                 },
                 "example": {
                   "success": false,
                   "message": "you are not Authorized"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/admin/car/<car_id>": {
-      "delete": {
-        "tags": [
-          "Admin"
-        ],
-        "summary": "Delete Mobil",
-        "description": "Endpoint for deleting mobil record",
-        "operationId": "DeleteMobil",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "headers": {
-              "X-Powered-By": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Express"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "45"
-                  }
-                }
-              },
-              "ETag": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "W/\"2d-CaOG6qx8ItyB4DfP5Encevf+aMk\""
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Sat, 31 Jul 2021 14:26:50 GMT"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "keep-alive"
-                  }
-                }
-              },
-              "Keep-Alive": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "timeout=5"
-                  }
-                }
-              }
-            },
-            "content": {
-              "application/json; charset=utf-8": {
-                "schema": {
-                  "$ref": "#/components/schemas/Success5"
-                },
-                "example": {
-                  "message": "Car record successfully deleted"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Unprocessable Entity",
-            "headers": {
-              "X-Powered-By": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Express"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "157"
-                  }
-                }
-              },
-              "ETag": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "W/\"9d-GFGEbzmm/b6RHxm+qfXOpuP/gLA\""
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Sat, 31 Jul 2021 14:26:31 GMT"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "keep-alive"
-                  }
-                }
-              },
-              "Keep-Alive": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "timeout=5"
-                  }
-                }
-              }
-            },
-            "content": {
-              "application/json; charset=utf-8": {
-                "schema": {
-                  "$ref": "#/components/schemas/IDnotValid1"
-                },
-                "example": {
-                  "success": false,
-                  "message": "Validation failed",
-                  "data": [
-                    {
-                      "value": "61055a0e898d82288f9e69b",
-                      "msg": "Car ID is not valid",
-                      "param": "car_id",
-                      "location": "params"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "headers": {
-              "X-Powered-By": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Express"
-                  }
-                }
-              },
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "46"
-                  }
-                }
-              },
-              "ETag": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "W/\"2e-cwFgPzyoqIYFl83SyjHhb0BkU/k\""
-                  }
-                }
-              },
-              "Date": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "Sat, 31 Jul 2021 14:28:23 GMT"
-                  }
-                }
-              },
-              "Connection": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "keep-alive"
-                  }
-                }
-              },
-              "Keep-Alive": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "timeout=5"
-                  }
-                }
-              }
-            },
-            "content": {
-              "application/json; charset=utf-8": {
-                "schema": {
-                  "$ref": "#/components/schemas/IDNotFound1"
-                },
-                "example": {
-                  "success": false,
-                  "message": "id car not found"
                 }
               }
             }
@@ -1872,7 +1870,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/Success2"
+                  "$ref": "#/components/schemas/%5BRentalListMobil%5DSuccess"
                 },
                 "example": {
                   "message": "success",
@@ -1983,7 +1981,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/Success1"
+                  "$ref": "#/components/schemas/%5BRentalDetailMobil%5DSuccess"
                 },
                 "example": {
                   "message": "success",
@@ -2068,7 +2066,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/InvalidCarID1"
+                  "$ref": "#/components/schemas/%5BRentalDetailMobil%5DInvalidCarID1"
                 },
                 "example": {
                   "success": false,
@@ -2113,7 +2111,7 @@
                 "properties": {
                   "car_id": {
                     "type": "string",
-                    "example": "61063b50f4b6da131e55dbc1"
+                    "example": "<car_id>"
                   },
                   "start_date": {
                     "type": "string",
@@ -2202,7 +2200,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/Success8"
+                  "$ref": "#/components/schemas/%5BRentalCekMobil%5DSuccess"
                 },
                 "example": {
                   "message": "success",
@@ -2242,7 +2240,7 @@
                 "properties": {
                   "car_id": {
                     "type": "string",
-                    "example": "61063b50f4b6da131e55dbc1"
+                    "example": "<car_id>"
                   },
                   "start_date": {
                     "type": "string",
@@ -2331,7 +2329,7 @@
             "content": {
               "application/json; charset=utf-8": {
                 "schema": {
-                  "$ref": "#/components/schemas/Success9"
+                  "$ref": "#/components/schemas/%5BRentalPinjamMobil%5DSuccess"
                 },
                 "example": {
                   "message": "success",
@@ -2373,8 +2371,8 @@
   },
   "components": {
     "schemas": {
-      "successsignup": {
-        "title": "successsignup",
+      "[Signup]Success": {
+        "title": "[Signup]Success",
         "required": [
           "message",
           "accessToken"
@@ -2423,8 +2421,8 @@
           "location": "body"
         }
       },
-      "notvalidemail1": {
-        "title": "notvalidemail1",
+      "[Signup]Notvalidemail1": {
+        "title": "[Signup]Notvalidemail1",
         "required": [
           "success",
           "message",
@@ -2459,8 +2457,8 @@
           ]
         }
       },
-      "userhasbeenregistered1": {
-        "title": "userhasbeenregistered1",
+      "[Signup]Userhasbeenregistered1": {
+        "title": "[Signup]Userhasbeenregistered1",
         "required": [
           "success",
           "message",
@@ -2501,8 +2499,8 @@
           ]
         }
       },
-      "passwordnotmatch1": {
-        "title": "passwordnotmatch1",
+      "[Signup]Passwordnotmatch1": {
+        "title": "[Signup]Passwordnotmatch1",
         "required": [
           "success",
           "message",
@@ -2566,8 +2564,8 @@
           "location": "body"
         }
       },
-      "Email/Usernameinvalid1": {
-        "title": "Email/Usernameinvalid1",
+      "[Signup]EmailorUsernameinvalid1": {
+        "title": "[Signup]EmailorUsernameinvalid1",
         "required": [
           "success",
           "message",
@@ -2612,8 +2610,8 @@
           ]
         }
       },
-      "success": {
-        "title": "success",
+      "[Login]Success": {
+        "title": "[Login]Success",
         "required": [
           "message",
           "accessToken"
@@ -2632,8 +2630,8 @@
           "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjEwNTQzOWZlYzlhNGUxMzQwOGMwOGNhIiwicm9sZSI6InVzZXIiLCJlbWFpbCI6ImVtYWlsQGVtYWlsLmNvbSIsInVzZXJuYW1lIjoicGVtaW5qYW1fcGVydGFtYSJ9LCJpYXQiOjE2Mjc3MzUxODIsImV4cCI6MTYyNzczODc4Mn0.P50yifpI8bOkhHGZIvq6EDE04unjz9HManFc5L7-xZY"
         }
       },
-      "usernotfound1": {
-        "title": "usernotfound1",
+      "[Login]Usernotfound1": {
+        "title": "[Login]Usernotfound1",
         "required": [
           "status",
           "message"
@@ -2652,8 +2650,8 @@
           "message": "User is not found!"
         }
       },
-      "wrongpassword1": {
-        "title": "wrongpassword1",
+      "[Login]Wrongpassword1": {
+        "title": "[Login]Wrongpassword1",
         "required": [
           "status",
           "message"
@@ -2672,8 +2670,8 @@
           "message": "Wrong password!"
         }
       },
-      "passwordempty1": {
-        "title": "passwordempty1",
+      "[Login]Passwordempty1": {
+        "title": "[Login]Passwordempty1",
         "required": [
           "success",
           "message",
@@ -2708,8 +2706,8 @@
           ]
         }
       },
-      "usernameempty1": {
-        "title": "usernameempty1",
+      "[Login]Usernameempty1": {
+        "title": "[Login]Usernameempty1",
         "required": [
           "status",
           "message"
@@ -2728,8 +2726,8 @@
           "message": "Missing credentials"
         }
       },
-      "Success1": {
-        "title": "Success1",
+      "[AdmDetailMobil]Success": {
+        "title": "[AdmDetailMobil]Success",
         "required": [
           "message",
           "data"
@@ -2839,8 +2837,8 @@
           "location": "params"
         }
       },
-      "CarIDnotValid1": {
-        "title": "CarIDnotValid1",
+      "[AdmDetailMobil]CarIDnotValid1": {
+        "title": "[AdmDetailMobil]CarIDnotValid1",
         "required": [
           "success",
           "message",
@@ -2875,8 +2873,8 @@
           ]
         }
       },
-      "NotAdmin1": {
-        "title": "NotAdmin1",
+      "[AdmDetailMobil]NotAdmin1": {
+        "title": "[AdmDetailMobil]NotAdmin1",
         "required": [
           "success",
           "message"
@@ -2895,8 +2893,8 @@
           "message": "you are not Authorized"
         }
       },
-      "NotFound": {
-        "title": "NotFound",
+      "[AdmDetailMobil]NotFound": {
+        "title": "[AdmDetailMobil]NotFound",
         "required": [
           "message",
           "data"
@@ -2915,8 +2913,8 @@
           "data": "Not Found"
         }
       },
-      "Success2": {
-        "title": "Success2",
+      "[AdmListMobil]Success": {
+        "title": "[AdmListMobil]Success",
         "required": [
           "message",
           "data"
@@ -2960,8 +2958,8 @@
           ]
         }
       },
-      "NotFound1": {
-        "title": "NotFound1",
+      "[AdmListMobil]NotFound": {
+        "title": "[AdmListMobil]NotFound",
         "required": [
           "message",
           "data"
@@ -2986,8 +2984,37 @@
           ]
         }
       },
-      "DuplicateValue1": {
-        "title": "DuplicateValue1",
+      "[AdmDaftarMobil]Success": {
+        "title": "[AdmDaftarMobil]Success",
+        "required": [
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "message": "success",
+          "data": {
+            "merk": "Mercedes",
+            "tipe_varian": "S Class",
+            "kondisi": "Bagus",
+            "harga_sewa": 100000,
+            "jumlah": 10,
+            "created": "2021-07-31T14:11:26.851Z",
+            "updated": "2021-07-31T14:11:26.851Z",
+            "id": "61055a0e898d82288f9e69b8"
+          }
+        }
+      },
+      "[AdmDaftarMobil]DuplicateValue1": {
+        "title": "[AdmDaftarMobil]DuplicateValue1",
         "required": [
           "success",
           "message"
@@ -3006,8 +3033,8 @@
           "message": "Mobil dengan merk , tipe, dan kondisi tersebut sudah pernah di input"
         }
       },
-      "InvalidInput1": {
-        "title": "InvalidInput1",
+      "[AdmDaftarMobil]InvalidInput1": {
+        "title": "[AdmDaftarMobil]InvalidInput1",
         "required": [
           "success",
           "message",
@@ -3048,8 +3075,57 @@
           ]
         }
       },
-      "IDnotValid1": {
-        "title": "IDnotValid1",
+      "[AdmDaftarMobil]NotAdmin1": {
+        "title": "[AdmDaftarMobil]NotAdmin1",
+        "required": [
+          "success",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": false,
+          "message": "you are not Authorized"
+        }
+      },
+      "[AdmUpdateStok]Success": {
+        "title": "[AdmUpdateStok]Success",
+        "required": [
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "message": "success",
+          "data": {
+            "merk": "Mercedes",
+            "tipe_varian": "S Class",
+            "kondisi": "Bagus",
+            "harga_sewa": 100000,
+            "jumlah": 100,
+            "created": "2021-07-31T14:28:51.81Z",
+            "updated": "2021-07-31T14:29:31.462Z",
+            "id": "61055e23a820ed2b7db79f33"
+          }
+        }
+      },
+      "[AdmUpdateStok]IDnotValid1": {
+        "title": "[AdmUpdateStok]IDnotValid1",
         "required": [
           "success",
           "message",
@@ -3084,8 +3160,8 @@
           ]
         }
       },
-      "IDNotFound1": {
-        "title": "IDNotFound1",
+      "[AdmUpdateStok]IDNotFound1": {
+        "title": "[AdmUpdateStok]IDNotFound1",
         "required": [
           "success",
           "message"
@@ -3104,8 +3180,8 @@
           "message": "id car not found"
         }
       },
-      "Success5": {
-        "title": "Success5",
+      "[AdmDeleteMobil]Success": {
+        "title": "[AdmDeleteMobil]Success",
         "required": [
           "message"
         ],
@@ -3119,8 +3195,164 @@
           "message": "Car record successfully deleted"
         }
       },
-      "InvalidCarID1": {
-        "title": "InvalidCarID1",
+      "[AdmDeleteMobil]IDnotValid1": {
+        "title": "[AdmDeleteMobil]IDnotValid1",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Data1"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "success": false,
+          "message": "Validation failed",
+          "data": [
+            {
+              "value": "61055a0e898d82288f9e69b",
+              "msg": "Car ID is not valid",
+              "param": "car_id",
+              "location": "params"
+            }
+          ]
+        }
+      },
+      "[AdmDeleteMobil]IDnotFound1": {
+        "title": "[AdmDeleteMobil]IDnotFound1",
+        "required": [
+          "success",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": false,
+          "message": "id car not found"
+        }
+      },
+      "[RentalListMobil]Success": {
+        "title": "[RentalListMobil]Success",
+        "required": [
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Data"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "message": "success",
+          "data": [
+            {
+              "merk": "Mercedes",
+              "tipe_varian": "X Class",
+              "kondisi": "Bagus",
+              "harga_sewa": 200000,
+              "jumlah": 15,
+              "created": "2021-07-31T14:14:56.873Z",
+              "updated": "2021-07-31T14:14:56.873Z",
+              "id": "61055ae0054d212924ebe677"
+            },
+            {
+              "merk": "Mercedes",
+              "tipe_varian": "S Class",
+              "kondisi": "Bagus",
+              "harga_sewa": 100000,
+              "jumlah": 100,
+              "created": "2021-07-31T14:28:51.81Z",
+              "updated": "2021-07-31T14:31:28.976Z",
+              "id": "61055e23a820ed2b7db79f33"
+            }
+          ]
+        }
+      },
+      "[RentalListMobil]NotFound": {
+        "title": "[RentalListMobil]NotFound",
+        "required": [
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "message": "Not Found",
+          "data": [
+            "Not Found"
+          ]
+        }
+      },
+      "[RentalDetailMobil]Success": {
+        "title": "[RentalDetailMobil]Success",
+        "required": [
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "message": "success",
+          "data": {
+            "merk": "Mercedes",
+            "tipe_varian": "X Class",
+            "kondisi": "Bagus",
+            "harga_sewa": 200000,
+            "jumlah": 15,
+            "created": "2021-07-31T14:14:56.873Z",
+            "updated": "2021-07-31T14:14:56.873Z",
+            "id": "61055ae0054d212924ebe677"
+          }
+        }
+      },
+      "[RentalDetailMobil]InvalidCarID1": {
+        "title": "[RentalDetailMobil]InvalidCarID1",
         "required": [
           "success",
           "message",
@@ -3155,8 +3387,28 @@
           ]
         }
       },
-      "Success8": {
-        "title": "Success8",
+      "[RentalDetailMobil]NotFound": {
+        "title": "[RentalDetailMobil]NotFound",
+        "required": [
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "message": "success",
+          "data": "Not Found"
+        }
+      },
+      "[RentalCekMobil]Success": {
+        "title": "[RentalCekMobil]Success",
         "required": [
           "message",
           "data"
@@ -3198,8 +3450,8 @@
           "2/8/2021": "available"
         }
       },
-      "Success9": {
-        "title": "Success9",
+      "[RentalPinjamMobil]Success": {
+        "title": "[RentalPinjamMobil]Success",
         "required": [
           "message",
           "data"
@@ -3412,8 +3664,8 @@
           "id": "6105528bea2268235ea53d2d"
         }
       },
-      "NotAvailable": {
-        "title": "NotAvailable",
+      "[RentalPinjamMobil]NotAvailable": {
+        "title": "[RentalPinjamMobil]NotAvailable",
         "required": [
           "message",
           "data"
@@ -3480,10 +3732,12 @@
       "description": "This is an Authentication endpoint, it consist endpoint login for admin and user, and endpoint signup to register new user ( user for renting the car not Admin)"
     },
     {
-      "name": "Admin"
+      "name": "Admin",
+      "description": "This is an Administration endpoint, it consist 5 endpoint which are Detail Mobil, List Mobil, Daftar Mobil Baru, Update Stok, and Delete Mobil"
     },
     {
-      "name": "Rental"
+      "name": "Rental",
+      "description" : "This is a Rental endpoint, it consist 4 endpoint which are Detail Mobil, List Mobil, Cek ketersediaan, and Pinjam Mobil"
     }
   ]
 }
