@@ -16,7 +16,7 @@ class AuthController {
 					user: body,
 				},
 				process.env.JWT_SECRET,
-				{ expiresIn: "1h" },
+				{ expiresIn: "7d" },
 				{ algorithm: "RS256" }
 			);
 

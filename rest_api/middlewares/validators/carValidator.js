@@ -25,3 +25,10 @@ exports.registerCar = [
 exports.checkCarId = [
 	check("car_id").custom(isValidObjectId).bail().customSanitizer(objectId),
 ];
+
+exports.checkCarIdAndDate = [
+	check("car_id").custom(isValidObjectId).customSanitizer(objectId),
+	check("start_date").notEmpty().toDate().bail(),
+	check("end_date").optional({ nullable: true }).toDate(),
+	check("jumlah_pinjam").notEmpty().isNumeric(),
+];

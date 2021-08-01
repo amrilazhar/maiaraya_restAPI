@@ -1,0 +1,3489 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "MaiaRental",
+    "description": "This a simple API of rental Car that intended to fulfill an assignment test of Maia Raya Junior Developer.\n\nThis API include function,\n1. Authentication Using JWT\n2. Administration (Simple CRUD to record car entity)\n3. Rental (Simple Create and Read to record Rental history)",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://example.com",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/auth/signup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Signup",
+        "description": "Endpoint for registering new user",
+        "operationId": "Signup",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "username",
+                  "password",
+                  "email",
+                  "phone",
+                  "address",
+                  "confirm_password"
+                ],
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "peminjam_kedua"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "Aneh1234!!"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "email2@email.com"
+                  },
+                  "phone": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 12344
+                  },
+                  "address": {
+                    "type": "string",
+                    "example": "Jl Fortuna"
+                  },
+                  "confirm_password": {
+                    "type": "string",
+                    "example": "Aneh1234!!"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "314"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"13a-ey0qXv0QETFeBM0Gq19821owjCk\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 12:35:43 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/successsignup"
+                },
+                "example": {
+                  "message": "success",
+                  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjEwNTQzOWZlYzlhNGUxMzQwOGMwOGNhIiwicm9sZSI6InVzZXIiLCJlbWFpbCI6ImVtYWlsQGVtYWlsLmNvbSIsInVzZXJuYW1lIjoicGVtaW5qYW1fcGVydGFtYSJ9LCJpYXQiOjE2Mjc3MzQ5NDMsImV4cCI6MTYyNzczODU0M30.0-VkBQhAkvnNEvosJcES6Cb-Vf0MZWxn_gcWv-KZlN8"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "247"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"f7-lKiQwH+bkjV2hCAKvicmpWevWWc\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 12:36:11 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/notvalidemail1"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Validation failed",
+                  "data": [
+                    {
+                      "value": "emailemail.com",
+                      "msg": "Invalid value",
+                      "param": "email",
+                      "location": "body"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Login",
+        "description": "Endpoint for login to get JWT auth Token (for admin and rental user)",
+        "operationId": "Login",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "username",
+                  "password"
+                ],
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "peminjam_pertama"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "Aneh1234!!"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "314"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"13a-XePxXL6wlWQOwIARTvaFSXcPYUk\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 12:39:42 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/success"
+                },
+                "example": {
+                  "message": "success",
+                  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjEwNTQzOWZlYzlhNGUxMzQwOGMwOGNhIiwicm9sZSI6InVzZXIiLCJlbWFpbCI6ImVtYWlsQGVtYWlsLmNvbSIsInVzZXJuYW1lIjoicGVtaW5qYW1fcGVydGFtYSJ9LCJpYXQiOjE2Mjc3MzUxODIsImV4cCI6MTYyNzczODc4Mn0.P50yifpI8bOkhHGZIvq6EDE04unjz9HManFc5L7-xZY"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "49"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"31-TxQleDBWXAoeApW1yH+RYtf2iCs\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 12:46:29 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/usernotfound1"
+                },
+                "example": {
+                  "status": "Error",
+                  "message": "User is not found!"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "128"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"80-+ArdVfh/Gcb0qkew0o8h8ZHMayY\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 12:47:03 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/passwordempty1"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Validation failed",
+                  "data": [
+                    {
+                      "value": "",
+                      "msg": "Invalid value",
+                      "param": "password",
+                      "location": "body"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/admin/car/<car_id>": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Detail Mobil",
+        "description": "Endpoint to get detail information of a selected car (this is for admin only)",
+        "operationId": "DetailMobil",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "228"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"e4-PiauaVXYaMZNcHUhh6k1rxqZj6U\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:12:58 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success1"
+                },
+                "example": {
+                  "message": "success",
+                  "data": {
+                    "merk": "Mercedes",
+                    "tipe_varian": "S Class",
+                    "kondisi": "Bagus",
+                    "harga_sewa": 100000,
+                    "jumlah": 10,
+                    "created": "2021-07-31T14:11:26.851Z",
+                    "updated": "2021-07-31T14:11:26.851Z",
+                    "id": "61055a0e898d82288f9e69b8"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "157"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"9d-GFGEbzmm/b6RHxm+qfXOpuP/gLA\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:13:31 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarIDnotValid1"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Validation failed",
+                  "data": [
+                    {
+                      "value": "61055a0e898d82288f9e69b",
+                      "msg": "Car ID is not valid",
+                      "param": "car_id",
+                      "location": "params"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "52"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"34-wNnKSrgA3XRKwLHSzfmBP4S4Ut0\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:17:18 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotAdmin1"
+                },
+                "example": {
+                  "success": false,
+                  "message": "you are not Authorized"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/car": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "List Mobil",
+        "description": "Endpoint to get list of all car (this is for admin only)",
+        "operationId": "ListMobil",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "430"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"1ae-o1R+0JPA9jln4RR7sTx65DFTip4\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:15:00 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success2"
+                },
+                "example": {
+                  "message": "success",
+                  "data": [
+                    {
+                      "merk": "Mercedes",
+                      "tipe_varian": "S Class",
+                      "kondisi": "Bagus",
+                      "harga_sewa": 100000,
+                      "jumlah": 10,
+                      "created": "2021-07-31T14:11:26.851Z",
+                      "updated": "2021-07-31T14:11:26.851Z",
+                      "id": "61055a0e898d82288f9e69b8"
+                    },
+                    {
+                      "merk": "Mercedes",
+                      "tipe_varian": "X Class",
+                      "kondisi": "Bagus",
+                      "harga_sewa": 200000,
+                      "jumlah": 15,
+                      "created": "2021-07-31T14:14:56.873Z",
+                      "updated": "2021-07-31T14:14:56.873Z",
+                      "id": "61055ae0054d212924ebe677"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Update Stok",
+        "description": "Endpoint for updating stok mobil",
+        "operationId": "UpdateStok",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "car_id",
+                  "jumlah"
+                ],
+                "type": "object",
+                "properties": {
+                  "car_id": {
+                    "type": "string",
+                    "example": "61055e23a820ed2b7db79f33"
+                  },
+                  "jumlah": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 100
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "229"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"e5-qVIFPONHFj6NzpWHMcFFyL4EIKA\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:29:31 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success1"
+                },
+                "example": {
+                  "message": "success",
+                  "data": {
+                    "merk": "Mercedes",
+                    "tipe_varian": "S Class",
+                    "kondisi": "Bagus",
+                    "harga_sewa": 100000,
+                    "jumlah": 100,
+                    "created": "2021-07-31T14:28:51.81Z",
+                    "updated": "2021-07-31T14:29:31.462Z",
+                    "id": "61055e23a820ed2b7db79f33"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "155"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"9b-Ee91QfAqpFty7oEO6bH6ZTWWuP0\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:29:42 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/IDnotValid1"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Validation failed",
+                  "data": [
+                    {
+                      "value": "61055e23a820ed2b7db79f3",
+                      "msg": "Car ID is not valid",
+                      "param": "car_id",
+                      "location": "body"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "46"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"2e-cwFgPzyoqIYFl83SyjHhb0BkU/k\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:31:06 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/IDNotFound1"
+                },
+                "example": {
+                  "success": false,
+                  "message": "id car not found"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/register_car": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Daftar Mobil Baru",
+        "description": "Endpoint to register new type of Car. You can register a car with unique merk, tipe, and kondisi\n\nexample : \n\n// can be inserted : \n\nMercedes - S Class - Bagus - Jumlah 10\n\nMercedes - S Class - Lumayan - Jumlah 10\n\n// cannot be inserted (duplicated) :\n\nMercedes - S Class - Bagus - Jumlah 10\n\nMercedes - S Class - Bagus - Jumlah 10",
+        "operationId": "DaftarMobilBaru",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "merk",
+                  "tipe_varian",
+                  "kondisi",
+                  "harga_sewa",
+                  "jumlah"
+                ],
+                "type": "object",
+                "properties": {
+                  "merk": {
+                    "type": "string",
+                    "example": "Mercedes"
+                  },
+                  "tipe_varian": {
+                    "type": "string",
+                    "example": "S Class"
+                  },
+                  "kondisi": {
+                    "type": "string",
+                    "example": "Bagus"
+                  },
+                  "harga_sewa": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 100000
+                  },
+                  "jumlah": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 150
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "228"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"e4-PiauaVXYaMZNcHUhh6k1rxqZj6U\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:11:26 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success1"
+                },
+                "example": {
+                  "message": "success",
+                  "data": {
+                    "merk": "Mercedes",
+                    "tipe_varian": "S Class",
+                    "kondisi": "Bagus",
+                    "harga_sewa": 100000,
+                    "jumlah": 10,
+                    "created": "2021-07-31T14:11:26.851Z",
+                    "updated": "2021-07-31T14:11:26.851Z",
+                    "id": "61055a0e898d82288f9e69b8"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "98"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"62-x0+rYfCfkKEFm6OBf9joI6ybdt0\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:11:50 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/DuplicateValue1"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Mobil dengan merk , tipe, dan kondisi tersebut sudah pernah di input"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "204"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"cc-sSGt9dk6vkzbJsXeFNspRlqQDUs\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:12:07 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidInput1"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Validation failed",
+                  "data": [
+                    {
+                      "value": "",
+                      "msg": "Invalid value",
+                      "param": "harga_sewa",
+                      "location": "body"
+                    },
+                    {
+                      "value": "",
+                      "msg": "Invalid value",
+                      "param": "harga_sewa",
+                      "location": "body"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "52"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"34-wNnKSrgA3XRKwLHSzfmBP4S4Ut0\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:17:36 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotAdmin1"
+                },
+                "example": {
+                  "success": false,
+                  "message": "you are not Authorized"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/car/<car_id>": {
+      "delete": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Delete Mobil",
+        "description": "Endpoint for deleting mobil record",
+        "operationId": "DeleteMobil",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "45"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"2d-CaOG6qx8ItyB4DfP5Encevf+aMk\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:26:50 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success5"
+                },
+                "example": {
+                  "message": "Car record successfully deleted"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "157"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"9d-GFGEbzmm/b6RHxm+qfXOpuP/gLA\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:26:31 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/IDnotValid1"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Validation failed",
+                  "data": [
+                    {
+                      "value": "61055a0e898d82288f9e69b",
+                      "msg": "Car ID is not valid",
+                      "param": "car_id",
+                      "location": "params"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "46"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"2e-cwFgPzyoqIYFl83SyjHhb0BkU/k\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sat, 31 Jul 2021 14:28:23 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/IDNotFound1"
+                },
+                "example": {
+                  "success": false,
+                  "message": "id car not found"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rental/list": {
+      "get": {
+        "tags": [
+          "Rental"
+        ],
+        "summary": "List Mobil",
+        "description": "Endpoint for getting list of all car (for user)",
+        "operationId": "GetListMobil",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "431"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"1af-rC3dso0AD4Rq3kuAuSbGckA/E4k\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sun, 01 Aug 2021 06:03:42 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success2"
+                },
+                "example": {
+                  "message": "success",
+                  "data": [
+                    {
+                      "merk": "Mercedes",
+                      "tipe_varian": "X Class",
+                      "kondisi": "Bagus",
+                      "harga_sewa": 200000,
+                      "jumlah": 15,
+                      "created": "2021-07-31T14:14:56.873Z",
+                      "updated": "2021-07-31T14:14:56.873Z",
+                      "id": "61055ae0054d212924ebe677"
+                    },
+                    {
+                      "merk": "Mercedes",
+                      "tipe_varian": "S Class",
+                      "kondisi": "Bagus",
+                      "harga_sewa": 100000,
+                      "jumlah": 100,
+                      "created": "2021-07-31T14:28:51.81Z",
+                      "updated": "2021-07-31T14:31:28.976Z",
+                      "id": "61055e23a820ed2b7db79f33"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rental/detail/<car_id>": {
+      "get": {
+        "tags": [
+          "Rental"
+        ],
+        "summary": "Detail Mobil",
+        "description": "Endpoint for getting detail information of a car (for user)",
+        "operationId": "GetDetailMobil",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "228"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"e4-p3DoKyWRr0k8mbbsHczCUUVWGTM\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sun, 01 Aug 2021 06:03:53 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success1"
+                },
+                "example": {
+                  "message": "success",
+                  "data": {
+                    "merk": "Mercedes",
+                    "tipe_varian": "X Class",
+                    "kondisi": "Bagus",
+                    "harga_sewa": 200000,
+                    "jumlah": 15,
+                    "created": "2021-07-31T14:14:56.873Z",
+                    "updated": "2021-07-31T14:14:56.873Z",
+                    "id": "61055ae0054d212924ebe677"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "157"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"9d-JHvBly94rSJRh6NOipcw6zheku4\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sun, 01 Aug 2021 06:04:20 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvalidCarID1"
+                },
+                "example": {
+                  "success": false,
+                  "message": "Validation failed",
+                  "data": [
+                    {
+                      "value": "61055ae0054d212924ebe67",
+                      "msg": "Car ID is not valid",
+                      "param": "car_id",
+                      "location": "params"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rental/check_availability": {
+      "post": {
+        "tags": [
+          "Rental"
+        ],
+        "summary": "Cek Ketersediaan",
+        "description": "Endpoint for checking availability of a car to be rented in selected date",
+        "operationId": "CekKetersediaan",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "car_id",
+                  "start_date",
+                  "end_date",
+                  "jumlah_pinjam"
+                ],
+                "type": "object",
+                "properties": {
+                  "car_id": {
+                    "type": "string",
+                    "example": "61063b50f4b6da131e55dbc1"
+                  },
+                  "start_date": {
+                    "type": "string",
+                    "example": "2021-08-01"
+                  },
+                  "end_date": {
+                    "type": "string",
+                    "example": "2021-08-02"
+                  },
+                  "jumlah_pinjam": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 10
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "83"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"53-OjrgRxB/0U3+0lzjWEKwxaJ8g7I\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sun, 01 Aug 2021 08:28:47 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success8"
+                },
+                "example": {
+                  "message": "success",
+                  "data": {
+                    "1/8/2021": "kurang 10 mobil ",
+                    "2/8/2021": "available"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/rental/rent": {
+      "post": {
+        "tags": [
+          "Rental"
+        ],
+        "summary": "Pinjam Mobil",
+        "description": "Endpoint for renting a Car in selected date",
+        "operationId": "PinjamMobil",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "car_id",
+                  "start_date",
+                  "end_date",
+                  "jumlah_pinjam"
+                ],
+                "type": "object",
+                "properties": {
+                  "car_id": {
+                    "type": "string",
+                    "example": "61063b50f4b6da131e55dbc1"
+                  },
+                  "start_date": {
+                    "type": "string",
+                    "example": "2021-08-05"
+                  },
+                  "end_date": {
+                    "type": "string",
+                    "example": "2021-08-06"
+                  },
+                  "jumlah_pinjam": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 10
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Express"
+                  }
+                }
+              },
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "585"
+                  }
+                }
+              },
+              "ETag": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "W/\"249-rWg6qjDm+DPpgn74mr6hV5LayAw\""
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Sun, 01 Aug 2021 07:26:01 GMT"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Keep-Alive": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "timeout=5"
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Success9"
+                },
+                "example": {
+                  "message": "success",
+                  "data": {
+                    "mobil": {
+                      "merk": "Mercedes",
+                      "tipe_varian": "XX Class",
+                      "kondisi": "Bagus",
+                      "harga_sewa": 500000,
+                      "jumlah": 100,
+                      "created": "2021-08-01T06:12:32.839Z",
+                      "updated": "2021-08-01T06:12:32.839Z",
+                      "id": "61063b50f4b6da131e55dbc1"
+                    },
+                    "peminjam": {
+                      "deleted": false,
+                      "username": "admin",
+                      "email": "email2@email.com",
+                      "phone": "12344",
+                      "address": "Jl Fortuna",
+                      "role": "admin",
+                      "created": "2021-07-31T13:39:23.107Z",
+                      "updated": "2021-07-31T13:39:23.107Z",
+                      "id": "6105528bea2268235ea53d2d"
+                    },
+                    "jumlah_pinjam": "80",
+                    "harga_pinjam": 500000,
+                    "start_sewa": "2021-08-03T00:00:00Z",
+                    "total_harga_sewa": 1500000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "successsignup": {
+        "title": "successsignup",
+        "required": [
+          "message",
+          "accessToken"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "accessToken": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "message": "success",
+          "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjEwNTQzOWZlYzlhNGUxMzQwOGMwOGNhIiwicm9sZSI6InVzZXIiLCJlbWFpbCI6ImVtYWlsQGVtYWlsLmNvbSIsInVzZXJuYW1lIjoicGVtaW5qYW1fcGVydGFtYSJ9LCJpYXQiOjE2Mjc3MzQ5NDMsImV4cCI6MTYyNzczODU0M30.0-VkBQhAkvnNEvosJcES6Cb-Vf0MZWxn_gcWv-KZlN8"
+        }
+      },
+      "Datum": {
+        "title": "Datum",
+        "required": [
+          "value",
+          "msg",
+          "param",
+          "location"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "param": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "value": "emailemail.com",
+          "msg": "Invalid value",
+          "param": "email",
+          "location": "body"
+        }
+      },
+      "notvalidemail1": {
+        "title": "notvalidemail1",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Datum"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "success": false,
+          "message": "Validation failed",
+          "data": [
+            {
+              "value": "emailemail.com",
+              "msg": "Invalid value",
+              "param": "email",
+              "location": "body"
+            }
+          ]
+        }
+      },
+      "userhasbeenregistered1": {
+        "title": "userhasbeenregistered1",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Datum"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "success": false,
+          "message": "Validation failed",
+          "data": [
+            {
+              "value": "peminjam_pertama",
+              "msg": "This username has been registered",
+              "param": "username",
+              "location": "body"
+            },
+            {
+              "value": "email@email.com",
+              "msg": "This e-mail is already registered",
+              "param": "email",
+              "location": "body"
+            }
+          ]
+        }
+      },
+      "passwordnotmatch1": {
+        "title": "passwordnotmatch1",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Datum"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "success": false,
+          "message": "Validation failed",
+          "data": [
+            {
+              "value": "Aneh12",
+              "msg": "Passwords not match",
+              "param": "confirm_password",
+              "location": "body"
+            }
+          ]
+        }
+      },
+      "Datum6": {
+        "title": "Datum6",
+        "required": [
+          "msg",
+          "param",
+          "location"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "param": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "value": "",
+          "msg": "Invalid value",
+          "param": "username",
+          "location": "body"
+        }
+      },
+      "Email/Usernameinvalid1": {
+        "title": "Email/Usernameinvalid1",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Datum6"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "success": false,
+          "message": "Validation failed",
+          "data": [
+            {
+              "value": "",
+              "msg": "Invalid value",
+              "param": "username",
+              "location": "body"
+            },
+            {
+              "msg": "Invalid value",
+              "param": "email",
+              "location": "body"
+            },
+            {
+              "msg": "Invalid value",
+              "param": "email",
+              "location": "body"
+            }
+          ]
+        }
+      },
+      "success": {
+        "title": "success",
+        "required": [
+          "message",
+          "accessToken"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "accessToken": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "message": "success",
+          "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjEwNTQzOWZlYzlhNGUxMzQwOGMwOGNhIiwicm9sZSI6InVzZXIiLCJlbWFpbCI6ImVtYWlsQGVtYWlsLmNvbSIsInVzZXJuYW1lIjoicGVtaW5qYW1fcGVydGFtYSJ9LCJpYXQiOjE2Mjc3MzUxODIsImV4cCI6MTYyNzczODc4Mn0.P50yifpI8bOkhHGZIvq6EDE04unjz9HManFc5L7-xZY"
+        }
+      },
+      "usernotfound1": {
+        "title": "usernotfound1",
+        "required": [
+          "status",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "status": "Error",
+          "message": "User is not found!"
+        }
+      },
+      "wrongpassword1": {
+        "title": "wrongpassword1",
+        "required": [
+          "status",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "status": "Error",
+          "message": "Wrong password!"
+        }
+      },
+      "passwordempty1": {
+        "title": "passwordempty1",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Datum"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "success": false,
+          "message": "Validation failed",
+          "data": [
+            {
+              "value": "",
+              "msg": "Invalid value",
+              "param": "password",
+              "location": "body"
+            }
+          ]
+        }
+      },
+      "usernameempty1": {
+        "title": "usernameempty1",
+        "required": [
+          "status",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "status": "Error",
+          "message": "Missing credentials"
+        }
+      },
+      "Success1": {
+        "title": "Success1",
+        "required": [
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "message": "success",
+          "data": {
+            "merk": "Mercedes",
+            "tipe_varian": "S Class",
+            "kondisi": "Bagus",
+            "harga_sewa": 100000,
+            "jumlah": 10,
+            "created": "2021-07-31T14:11:26.851Z",
+            "updated": "2021-07-31T14:11:26.851Z",
+            "id": "61055a0e898d82288f9e69b8"
+          }
+        }
+      },
+      "Data": {
+        "title": "Data",
+        "required": [
+          "merk",
+          "tipe_varian",
+          "kondisi",
+          "harga_sewa",
+          "jumlah",
+          "created",
+          "updated",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "merk": {
+            "type": "string"
+          },
+          "tipe_varian": {
+            "type": "string"
+          },
+          "kondisi": {
+            "type": "string"
+          },
+          "harga_sewa": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "jumlah": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "created": {
+            "type": "string"
+          },
+          "updated": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "merk": "Mercedes",
+          "tipe_varian": "S Class",
+          "kondisi": "Bagus",
+          "harga_sewa": 100000,
+          "jumlah": 10,
+          "created": "2021-07-31T14:11:26.851Z",
+          "updated": "2021-07-31T14:11:26.851Z",
+          "id": "61055a0e898d82288f9e69b8"
+        }
+      },
+      "Data1": {
+        "title": "Data1",
+        "required": [
+          "value",
+          "msg",
+          "param",
+          "location"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "param": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "value": "61055a0e898d82288f9e69b",
+          "msg": "Car ID is not valid",
+          "param": "car_id",
+          "location": "params"
+        }
+      },
+      "CarIDnotValid1": {
+        "title": "CarIDnotValid1",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Data1"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "success": false,
+          "message": "Validation failed",
+          "data": [
+            {
+              "value": "61055a0e898d82288f9e69b",
+              "msg": "Car ID is not valid",
+              "param": "car_id",
+              "location": "params"
+            }
+          ]
+        }
+      },
+      "NotAdmin1": {
+        "title": "NotAdmin1",
+        "required": [
+          "success",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": false,
+          "message": "you are not Authorized"
+        }
+      },
+      "NotFound": {
+        "title": "NotFound",
+        "required": [
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "message": "success",
+          "data": "Not Found"
+        }
+      },
+      "Success2": {
+        "title": "Success2",
+        "required": [
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Data"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "message": "success",
+          "data": [
+            {
+              "merk": "Mercedes",
+              "tipe_varian": "S Class",
+              "kondisi": "Bagus",
+              "harga_sewa": 100000,
+              "jumlah": 10,
+              "created": "2021-07-31T14:11:26.851Z",
+              "updated": "2021-07-31T14:11:26.851Z",
+              "id": "61055a0e898d82288f9e69b8"
+            },
+            {
+              "merk": "Mercedes",
+              "tipe_varian": "X Class",
+              "kondisi": "Bagus",
+              "harga_sewa": 200000,
+              "jumlah": 15,
+              "created": "2021-07-31T14:14:56.873Z",
+              "updated": "2021-07-31T14:14:56.873Z",
+              "id": "61055ae0054d212924ebe677"
+            }
+          ]
+        }
+      },
+      "NotFound1": {
+        "title": "NotFound1",
+        "required": [
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "message": "Not Found",
+          "data": [
+            "Not Found"
+          ]
+        }
+      },
+      "DuplicateValue1": {
+        "title": "DuplicateValue1",
+        "required": [
+          "success",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": false,
+          "message": "Mobil dengan merk , tipe, dan kondisi tersebut sudah pernah di input"
+        }
+      },
+      "InvalidInput1": {
+        "title": "InvalidInput1",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Data1"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "success": false,
+          "message": "Validation failed",
+          "data": [
+            {
+              "value": "",
+              "msg": "Invalid value",
+              "param": "harga_sewa",
+              "location": "body"
+            },
+            {
+              "value": "",
+              "msg": "Invalid value",
+              "param": "harga_sewa",
+              "location": "body"
+            }
+          ]
+        }
+      },
+      "IDnotValid1": {
+        "title": "IDnotValid1",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Data1"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "success": false,
+          "message": "Validation failed",
+          "data": [
+            {
+              "value": "61055e23a820ed2b7db79f3",
+              "msg": "Car ID is not valid",
+              "param": "car_id",
+              "location": "body"
+            }
+          ]
+        }
+      },
+      "IDNotFound1": {
+        "title": "IDNotFound1",
+        "required": [
+          "success",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": false,
+          "message": "id car not found"
+        }
+      },
+      "Success5": {
+        "title": "Success5",
+        "required": [
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "message": "Car record successfully deleted"
+        }
+      },
+      "InvalidCarID1": {
+        "title": "InvalidCarID1",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Data1"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "success": false,
+          "message": "Validation failed",
+          "data": [
+            {
+              "value": "61055ae0054d212924ebe67",
+              "msg": "Car ID is not valid",
+              "param": "car_id",
+              "location": "params"
+            }
+          ]
+        }
+      },
+      "Success8": {
+        "title": "Success8",
+        "required": [
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data16"
+          }
+        },
+        "example": {
+          "message": "success",
+          "data": {
+            "1/8/2021": "kurang 10 mobil ",
+            "2/8/2021": "available"
+          }
+        }
+      },
+      "Data16": {
+        "title": "Data16",
+        "required": [
+          "1/8/2021",
+          "2/8/2021"
+        ],
+        "type": "object",
+        "properties": {
+          "1/8/2021": {
+            "type": "string"
+          },
+          "2/8/2021": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "1/8/2021": "kurang 10 mobil ",
+          "2/8/2021": "available"
+        }
+      },
+      "Success9": {
+        "title": "Success9",
+        "required": [
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data17"
+          }
+        },
+        "example": {
+          "message": "success",
+          "data": {
+            "mobil": {
+              "merk": "Mercedes",
+              "tipe_varian": "XX Class",
+              "kondisi": "Bagus",
+              "harga_sewa": 500000,
+              "jumlah": 100,
+              "created": "2021-08-01T06:12:32.839Z",
+              "updated": "2021-08-01T06:12:32.839Z",
+              "id": "61063b50f4b6da131e55dbc1"
+            },
+            "peminjam": {
+              "deleted": false,
+              "username": "admin",
+              "email": "email2@email.com",
+              "phone": "12344",
+              "address": "Jl Fortuna",
+              "role": "admin",
+              "created": "2021-07-31T13:39:23.107Z",
+              "updated": "2021-07-31T13:39:23.107Z",
+              "id": "6105528bea2268235ea53d2d"
+            },
+            "jumlah_pinjam": "80",
+            "harga_pinjam": 500000,
+            "start_sewa": "2021-08-03T00:00:00Z",
+            "total_harga_sewa": 1500000
+          }
+        }
+      },
+      "Data17": {
+        "title": "Data17",
+        "required": [
+          "mobil",
+          "peminjam",
+          "jumlah_pinjam",
+          "harga_pinjam",
+          "start_sewa",
+          "total_harga_sewa"
+        ],
+        "type": "object",
+        "properties": {
+          "mobil": {
+            "$ref": "#/components/schemas/Mobil"
+          },
+          "peminjam": {
+            "$ref": "#/components/schemas/Peminjam"
+          },
+          "jumlah_pinjam": {
+            "type": "string"
+          },
+          "harga_pinjam": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start_sewa": {
+            "type": "string"
+          },
+          "total_harga_sewa": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "mobil": {
+            "merk": "Mercedes",
+            "tipe_varian": "XX Class",
+            "kondisi": "Bagus",
+            "harga_sewa": 500000,
+            "jumlah": 100,
+            "created": "2021-08-01T06:12:32.839Z",
+            "updated": "2021-08-01T06:12:32.839Z",
+            "id": "61063b50f4b6da131e55dbc1"
+          },
+          "peminjam": {
+            "deleted": false,
+            "username": "admin",
+            "email": "email2@email.com",
+            "phone": "12344",
+            "address": "Jl Fortuna",
+            "role": "admin",
+            "created": "2021-07-31T13:39:23.107Z",
+            "updated": "2021-07-31T13:39:23.107Z",
+            "id": "6105528bea2268235ea53d2d"
+          },
+          "jumlah_pinjam": "80",
+          "harga_pinjam": 500000,
+          "start_sewa": "2021-08-03T00:00:00Z",
+          "total_harga_sewa": 1500000
+        }
+      },
+      "Mobil": {
+        "title": "Mobil",
+        "required": [
+          "merk",
+          "tipe_varian",
+          "kondisi",
+          "harga_sewa",
+          "jumlah",
+          "created",
+          "updated",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "merk": {
+            "type": "string"
+          },
+          "tipe_varian": {
+            "type": "string"
+          },
+          "kondisi": {
+            "type": "string"
+          },
+          "harga_sewa": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "jumlah": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "created": {
+            "type": "string"
+          },
+          "updated": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "merk": "Mercedes",
+          "tipe_varian": "XX Class",
+          "kondisi": "Bagus",
+          "harga_sewa": 500000,
+          "jumlah": 100,
+          "created": "2021-08-01T06:12:32.839Z",
+          "updated": "2021-08-01T06:12:32.839Z",
+          "id": "61063b50f4b6da131e55dbc1"
+        }
+      },
+      "Peminjam": {
+        "title": "Peminjam",
+        "required": [
+          "deleted",
+          "username",
+          "email",
+          "phone",
+          "address",
+          "role",
+          "created",
+          "updated",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "deleted": {
+            "type": "boolean"
+          },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "created": {
+            "type": "string"
+          },
+          "updated": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "deleted": false,
+          "username": "admin",
+          "email": "email2@email.com",
+          "phone": "12344",
+          "address": "Jl Fortuna",
+          "role": "admin",
+          "created": "2021-07-31T13:39:23.107Z",
+          "updated": "2021-07-31T13:39:23.107Z",
+          "id": "6105528bea2268235ea53d2d"
+        }
+      },
+      "NotAvailable": {
+        "title": "NotAvailable",
+        "required": [
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data18"
+          }
+        },
+        "example": {
+          "message": "Not Available",
+          "data": {
+            "1/8/2021": "kurang 80 mobil ",
+            "2/8/2021": "kurang 60 mobil ",
+            "3/8/2021": "kurang 60 mobil "
+          }
+        }
+      },
+      "Data18": {
+        "title": "Data18",
+        "required": [
+          "1/8/2021",
+          "2/8/2021",
+          "3/8/2021"
+        ],
+        "type": "object",
+        "properties": {
+          "1/8/2021": {
+            "type": "string"
+          },
+          "2/8/2021": {
+            "type": "string"
+          },
+          "3/8/2021": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "1/8/2021": "kurang 80 mobil ",
+          "2/8/2021": "kurang 60 mobil ",
+          "3/8/2021": "kurang 60 mobil "
+        }
+      }
+    },
+    "securitySchemes": {
+      "httpBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "httpBearer": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "This is an Authentication endpoint, it consist endpoint login for admin and user, and endpoint signup to register new user ( user for renting the car not Admin)"
+    },
+    {
+      "name": "Admin"
+    },
+    {
+      "name": "Rental"
+    }
+  ]
+}

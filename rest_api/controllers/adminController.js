@@ -6,6 +6,8 @@ class AdminController {
 		try {
 			validationErrorHandler(req, res, next);
 			let dataMobil = await Car.findOne({ _id: req.params.car_id });
+
+			if(!dataMobil) return res.status(200).json({ message: "Not Found", data: "Not Found" });
 			return res.status(200).json({ message: "success", data: dataMobil });
 		} catch (error) {
 			//console.log(error);
@@ -20,6 +22,8 @@ class AdminController {
 		try {
 			validationErrorHandler(req, res, next);
 			let dataMobil = await Car.find();
+
+			if (dataMobil.length == 0) return res.status(200).json({ message: "Not Found", data: ["Not Found"] });
 			return res.status(200).json({ message: "success", data: dataMobil });
 		} catch (error) {
 			//console.log(error);

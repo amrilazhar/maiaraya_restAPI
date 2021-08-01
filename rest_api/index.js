@@ -6,6 +6,9 @@ require("dotenv").config({
 const express = require("express");
 const app = express();
 
+const swaggerUi = require("swagger-ui-express");
+swaggerDocument = require("./swagger.json");
+
 //Set body parser for HTTP post operation
 app.use(express.json()); // support json encoded bodies
 app.use(
@@ -14,12 +17,17 @@ app.use(
 	})
 ); // support encoded bodies
 
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 // ROUTES DECLARATION & IMPORT
 const authRoutes = require("./routes/authRoutes.js");
 app.use("/auth", authRoutes);
 
 const adminRoutes = require("./routes/adminRoutes.js");
 app.use("/admin", adminRoutes);
+
+const rentalRoutes = require("./routes/rentalRoutes.js");
+app.use("/rental", rentalRoutes);
 
 //========================= Error Handler ==========================
 app.use((err, req, res, next) => {
