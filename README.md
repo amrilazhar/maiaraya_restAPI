@@ -1,8 +1,14 @@
-# Junior Dev Assigment for Maia Raya 
+# Junior Dev Assigment for Maia Raya
+This Repositories intended to completed the assigment of Maia Raya Junior Development Test.
+there is five task, the first until the fourth test can be accessed in folder `other_test` and the task 5 can be accessed in folder `rest_api`. 
 
+For Task 1, because it is not a code but a picture, it can be accessed directly in folder `./other_test/task1_flowchart.png`
+
+For full explanation about the other task, it can be seen in below section. 
 ## Running the Code 
 This section will explain how to run the code for task 2-5 :
 
+***notes : we need Node JS installed in our system to run all the code in task 2-5. for the database in task 5 we don't need to install mongoDB because we are using cloud from mongo Atlas.***
 
 ## Task 2 Fibonnacci
 To run the fibonnacci program we must enter to folder other_test in terminal 
@@ -44,9 +50,16 @@ the program will show a question to us to write a sentence that we want to check
 To run the code we can use either standard npm or docker container,
 
 To run with standard server, first enter to rest_api folder
-`cd rest_api` then run the server with `npm start`.
 
-To run with docker we need to enter to rest_api folder too, `cd rest_api`, then run `docker build -t maiarental:1.0 .` wait until the images was build, then we can run the docker images.
+`cd rest_api` 
+
+then run the server with `npm start`.
+
+To run with docker we need to enter to rest_api folder too, `cd rest_api`, then run 
+
+`docker build -t maiarental:1.0 .` 
+
+wait until the images was build, then we can run the docker images.
 
 for full documentation about using the API can be found in the documentation section below.
 
