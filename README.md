@@ -63,6 +63,17 @@ wait until the images was build, then we can run the docker images.
 
 for full documentation about using the API can be found in the documentation section below.
 
+Login Information :
+```
+Role : Admin 
+username : admin
+password : Aneh1234!!
+
+Role : User 
+username : peminjam_pertama
+password : Aneh1234!!
+
+```
 ### **Documentation for REST API**
 Documentation of this API can be seen on :
 1. Postman : https://documenter.getpostman.com/view/15024355/Tzsfkjjo
